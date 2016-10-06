@@ -1,0 +1,112 @@
+﻿CSE 12 - Summer 2016 HW 3: Runtime & Sorting Algorithms
+Due: Sunday, July 17 11:59PM                                                Points: 142 points
+
+
+In this assignment you will analyze the running time of code and algorithms and practice with Big-O (and Big-Omega and Big-Theta) notation.  Additionally, you are given a program which is designed to measure comparisons, data movements and execution time for the six sorting algorithm we discussed in class-- checksort, insertion sort, selection sort, bubble sort, merge sort and quicksort.
+
+
+Part 2 of this assignment is modified and developed from http://nifty.stanford.edu/2002/LevineSort/labWriteUp.htm
+
+
+This assignment is an individual assignment.   You may ask Professors/TAs/Tutors for some guidance and help, but you can’t copy code.   You can, of course, discuss the assignment with your classmates, but don’t look at or copy each other's code or written answers.  And don’t just give away the answers either!
+
+
+The following files are provided for you and can be found on the HW page:
+* HW5.jar
+* SortingAlgorithms.java
+
+
+You will submit the following file for this assignment:
+* HW3.txt
+
+
+This will be a plain text file (NOT .docx or .pdf or anything else).  If you do not use the .txt extension, you will lose points!  You should use the ^ symbol to indicate exponentiation (e.g. n2 should be written n^2) and write out the words Theta (Θ) and Omega (Ω) where appropriate.  At the top of your HW3.txt file, please include the following header:
+Your Name
+Your PID
+Part 1 - Analyzing running time (42 points) 
+Part 1A: Warm up with Big-O, Big-Theta and Big-Omega (18 points)
+True/False.   In a section labeled Part 1A in your HW3.txt file, state whether each of the following equalities are true or false.  You should use the true meaning of Big-O (and Big-Omega), not just the tightest bound. You should put the number of the question followed by either the word True or False. One answer/line.  eg.
+
+
+Part 1A
+1. True
+2. False
+
+
+and so on.  
+1. 2. 3. 4. 5. 6. 7. 8. 9. 10. 11. 12. 13. 14. 15. 16. 17. 18. 
+
+Part 1B: Analyzing running time of code (24 points)
+In this part, you will practice your skills of estimating running time of code snippets.  For each piece of code below, state the running time of the snippet in terms of the loop limit variable, n.  You should assume that the variables n and sum are already declared and have a value.  You should express your answer using Big-O or Big-Θ (Theta) notation, though your Big-O bound will only receive full credit if it is a tight bound.  We allow you to use Big-O because it is often the convention to express only upper bounds on algorithms or code, but these upper bounds are generally understood to be as tight as possible.  In all cases, your expressed bounds should be simplified as much as possible, with no extra constant factors or additional terms (e.g. O(n) instead of O(2n+5))
+
+
+For each piece of code, state the running time and then give a short explanation of why that running time is correct.  We are not asking for a formal proof--you’ll learn how to do that in CSE 101.  For now your explanation should simply include an (approximate but reasonable) equation for how many instructions are executed, and then a relationship between your equation and your stated bound.  Place your answers in your HW3.txt file in a section labeled Part 1b.
+Here is an example:
+
+
+for ( int i = 5; i < n; i++ )
+  sum++;
+
+
+Most precise answer:
+Running time O(n)
+Explanation: There is a single loop that runs n-5 times.  Each time the loop runs it executes 1 instruction in the loop header and 1 instruction in the body of the loop.  The total number of instructions is 2*(n-5) + 1 (for the last loop check) = 2n-9 = O(n).
+
+
+A slightly less precise but still acceptable for full credit answer:
+Running time: O(n).
+Explanation: There is a single loop that runs n-5 times.  Each time the loop runs it executes 1 instruction, so the total number of instructions executed is 1* (n-5) = O(n) (also OK: Θ(n)). 
+
+
+   1. for ( int i = 0; i < n; i+=2 )
+   sum++;
+   2. for ( int i = 1; i < n; i*=2 )
+   sum++;
+   3. for ( int i = 0; i < n; i++ )
+   for ( int j = 0; j < n; j++ )
+       sum++;
+   4. for ( int i = 0; i < n; i++ )
+   sum++;
+for ( int j = 0; j < n; j++ )
+   sum++;
+// The above are two loops one after the other, NOT nested
+   5. for ( int i = 0; i < 2*n; i++ )
+   sum++;
+   6. for ( int i = 0; i < n*n; i++ )
+   sum++;
+   7. for ( int i = 0; i < n; i++ )
+   for ( int j = 0; j < n*n; j++ )
+       sum++;
+   8. for ( int i = 0; i < n; i++ )
+   for ( int j = 0; j < 10000; j++ )
+       sum++; 
+Part 2 (100 points)
+As you know from class, if you double the size of the input data that you give to a quadratic algorithm, it will do four times the work; by contrast, an O(NlogN) algorithm will do a bit more than twice as much; and, a linear algorithm will do only twice as much work.  As you also know, the properties of the input data set can affect the expected performance of many of our sorting algorithms.  Before you begin the homework, you should review the expected performance of the algorithms on various data sets.
+
+
+Instructions
+      1. Execute hw5.jar (to execute the program type ‘java -jar hw5.jar’ at the command line or just double-click on it if you’re running Windows assuming you have Java) and enter the last 5 digits of your PID in the secret number session and play with it a bit.  Each of you would get different matching based on your secret number. And we will grade based on your secret number as well. Notice that the button names do not give any indication which sort they will execute.  Create a list with some size and property of your choice by clicking “create the list”.
+
+
+Note: As we know from class, checksort is O(n!) time complexity. If you increase the size of the list to be 15,  the tightest number of comparison of random input data set is 15! = 1,307,674,368,000. !! This will make your program freeze for a long long time. Please be alert and do not think that your computer is dead. So, please start using smaller input first.  The slider only goes down to 16, so enter smaller numbers manually in the box.  Also be sure to click “Create the List” to change the size or order of the list.  And for checksort, using a smaller input for reasoning for your report is fine.
+
+
+      1. Click on each button to see the number of comparisons, movement and running time of this execution.
+
+
+      1. As you clicking each button, take careful notes as you go. From your note and the expected behavior of different sorting algorithms, match each button to some sorting algorithm and think about the rationale behind your guess.
+
+
+      1. Describe the results of your experiment in a selection labeled Part 2 in your HW3.txt (2 pages maximum for part 2). Begin your guess of each button and matching algorithm and then show the rationalization process that justifies it.  
+      1. Example of explaining one algorithm for the HW3.txt Part 3 report:
+Alpha: checksort.
+Rationale: If we choose list property to be random, we used lists size of 2, 4 and 8. The number of comparison is 2, 205, 69280.  As the size of input doubles, the number of comparison increases definitely more than double. If we choose list property to be in order, we also used lists size of 2, 4 and 8. The number of comparison is 1, 3 and 7 respectively. As a result, among the algorithms provided, check sort has the closest behavior. When the list is random the complexity is O(n!) and when the list is in order, the time complexity is O(n).
+
+
+      1. We have also provided SortingAlgorithms.java for you to know how we implemented each algorithm in hw5.jar and how we generate number of comparisons, number of movements and execution time. Looking at the code is optional but encouraged which is a review of how we can implement these algorithms, and moreover, make your guess more accurate.
+Grading
+Your grade on this assignment will be a combination of both whether you correctly identified the sort and  how well you explained why the secret sort was a particular sorting algorithm.
+	Turning in your assignment 
+
+
+For this assignment you will only turn in your HW3.txt file using vocareum.

@@ -1,0 +1,118 @@
+Name: Grigor Sargsyan   A13058299
+ID: cs12ucd
+Secret Number: 8299
+
+CSE12 HW #3 Part 1 A
+
+1.	True 
+2.	True
+3.	False
+4.	False
+5.	False
+6.	True
+7.	False
+8.	True
+9.	False
+10.	False
+11.	True
+12.	True
+13.	True
+14.	True
+15.	False
+16.	True
+17.	False
+18.	True
+
+CSE12 HW #3 Part 1 B
+
+1.	Running Time: Omega(n)
+	Explanation: There is a single loop that runs n/2 times.  Each time the loop runs it executes 1 instruction, 
+		     so the total number of instructions executed is 1* (n/2) = Omega(n).
+
+2.	Running Time: Omega(log(n))
+	Explanation: There is a single loop that runs log(n) times.  Each time the loop runs it executes 1 instruction, 
+		     so the total number of instructions executed is 1* (log(n)) = Omega(log(n)).
+
+3.	Running Time: Omega(n^2)
+	Explanation: There are two nested loops that run n times.  Each time the inner loop runs it executes 1 instruction, 
+		     so the total number of instructions executed is 1* (n) * (n) = Omega(n^2).
+
+4.	Running Time: Omega(n)
+	Explanation: There are two loops that run n times.  Each time one of the loops run it executes 1 instruction, so 
+		     the total number of instructions executed is 1* (n) + 1 * (n) = Omega(n).
+
+5.	Running Time: Omega(n)
+	Explanation: There is a single loop that runs 2*n times.  Each time the loop runs it executes 1 instruction, so the 
+		     total number of instructions executed is 1* (2*n) = Omega(n).
+
+6.	Running Time: Omega(n^2)
+	Explanation: There is a single loop that runs n*n times.  Each time the loop runs it executes 1 instruction, so the 
+		     total number of instructions executed is 1* (n*n) = Omega(n^2).
+
+7.	Running Time: Omega(n^3)
+	Explanation: There are two nested loops. The outer loop runs n times and the inner loop runs n*n times.  Each time 
+		     the inner loop runs it executes 1 instruction, so the total number of instructions executed is 1* (n^2) * (n) 
+		     = Omega(n^3).
+
+8.	Running Time: Omega(n)
+	Explanation: There are two nested loops. The outer loop runs n times and the inner loop runs 10,000 times.  Each time the 
+		     inner loop runs it executes 1 instruction, so the total number of instructions executed is 1* (10,000) * (n) 
+		     = Omega(n).
+
+CSE12 HW #3 Part 2
+
+Alpha: Selection Sort
+	If we choose list property to be random and we used list size 10, 20, and 40 then the number of comparisons is 45, 190, and 780. 
+	As the size of the inputs doubled, the number of comparisons increased by more than double. If we choose list property to be in 
+	order or reversed and we also used list sizes of 10, 20, and 40 then the number of comparisons for both are 45, 190, and 780. The 
+	number of comparisons are the same no matter how the array is ordered and among the algorithms provided, selection sort has the 
+	closest behavior. When the list is random the complexity is roughly O(n^2) and when the list is in order or reversed, the time 
+	complexity is also roughly O(n^2).
+
+Beta: Insertion Sort
+	If we choose list property to be random and we used list size 10, 20, and 40 then the number of comparisons is 36, 121, and 363. 
+	As the size of the inputs doubled, the number of comparisons increased by more than double. If we choose list property to be in 
+	order and we used list sizes of 10, 20, and 40 then the number of comparisons are 9, 19, and 39. As the size of the inputs doubled, 
+	the number of comparisons increased by double. If we choose list property to be reversed and we used list size 10, 20, and 40 then 
+	the number of comparisons is 45, 190, and 780. As the size of the inputs doubled, the number of comparisons increased by roughly 
+	double. As a result, among the algorithms provided, insertion sort has the closest behavior. When the list is random the complexity 
+	is roughly O(n^2), when the list is in order the time complexity is roughly O(n), and when the list is reversed the time complexity 
+	is roughly O(n^2). Although this pattern is also very similar to the Gamma sorter, the number of comparisons were significantly less 
+	than Gamma which is why I believe this sorter is Insertion Sort rather than Bubble Sort. 
+
+Gamma: Bubble Sort
+	If we choose list property to be random and we used list size 10, 20, and 40 then the number of comparisons is 90, 320, and 1040. 
+	As the size of the inputs doubled, the number of comparisons increased by more than double. If we choose list property to be in order 
+	and we used list sizes of 10, 20, and 40 then the number of comparisons are 10, 20, and 40. As the size of the inputs doubled, the number 
+	of comparisons increased by double. If we choose list property to be reversed and we used list size 10, 20, and 40 then the number of 
+	comparisons is 90, 380, and 1560. As the size of the inputs doubled, the number of comparisons increased by far more than double. As a 
+	result, among the algorithms provided, bubble sort has the closest behavior. When the list is random the complexity is roughly O(n^2), 
+	when the list is in order the time complexity is roughly O(n), and when the list is reversed the time complexity is roughly O(n^2). Although 
+	this pattern is also very similar to the Beta sorter, the number of comparisons were significantly more than Beta and only one movement was 
+	required for an array that was in order, which is why I believe this sorter is Bubble Sort rather than Insertion Sort. 
+
+Delta: Quick Sort
+	If we choose list property to be random and we used list size 10, 20, and 40 then the number of comparisons is 53, 139, and 339. As the 
+	size of the inputs doubled, the number of comparisons increased by roughly more than double. If we choose list property to be in order 
+	and we used list sizes of 10, 20, and 40 then the number of comparisons are 63, 228, and 858. As the size of the inputs doubled, the number
+	of comparisons increased by far more than double. If we choose list property to be reversed and we used list size 10, 20, and 40 then the 
+	number of comparisons is 68, 238, and 878. As the size of the inputs doubled, the number of comparisons increased by far more than double. 
+	As a result, among the algorithms provided, Quick sort has the closest behavior because it performs far better with random arrays then with 
+	ordered or reversed. When the list is random the complexity is roughly O(nlog(n)), when the list is in order the time complexity is roughly 
+	O(n^2), and when the list is reversed the time complexity is roughly O(n^2).
+
+Epsilon: Check Sort
+	If we choose list property to be random, we used lists size 2, 4, and 8. The number of comparisons is 4, 18, and 22,863. As the size of the 
+	inputs doubled, the number of comparisons increased by far more than double. If we choose list property to be in order, we also used lists sizes 
+	of 2, 4, and 8. The number of comparisons is 1, 3, and 7.As a result, among the algorithms provided, check sort has the closest behavior. When 
+	the list is random the complexity is roughly O(n!) and when the list is in order, the time complexity is roughly O(n). 
+
+Zeta: Merge Sort
+	If we choose list property to be random and we used list size 10, 20, and 40 then the number of comparisons is 23, 60, and 164. As the size of 
+	the inputs doubled, the number of comparisons increased by roughly more than double. If we choose list property to be in order and we used list 
+	sizes of 10, 20, and 40 then the number of comparisons are 19, 48, and 116. As the size of the inputs doubled, the number of comparisons increased 
+	by roughly more than double. If we choose list property to be reversed and we used list size 10, 20, and 40 then the number of comparisons is 15, 
+	40, and 100. As the size of the inputs doubled, the number of comparisons increased by roughly more than double. As a result, among the algorithms 
+	provided, Merge sort has the closest behavior because it performs the same for all three array types. When the list is random the complexity is 
+	roughly O(nlog(n)), when the list is in order the time complexity is roughly O(nlog(n)), and when the list is reversed the time complexity is roughly 
+	O(nlog(n)).
